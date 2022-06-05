@@ -1,3 +1,11 @@
 export const parseArgs = () => {
-    // Write your code here 
+  const [command, file, ...argv] = process.argv;
+  const result = [];
+
+  argv.forEach((val, i) => {
+        if (i % 2 === 0) result.push(`${val} is ${argv[i + 1]}`)
+      }
+  )
+  console.log(result.join(', '));
 };
+parseArgs()
