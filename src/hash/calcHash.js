@@ -10,6 +10,5 @@ export const calculateHash = async () => {
   readStream.on('data',chunk => hash.update(chunk))
 
   return new Promise((res) => readStream.on('end',()=> res(hash.digest('hex'))))
+  //test
 };
-
-
