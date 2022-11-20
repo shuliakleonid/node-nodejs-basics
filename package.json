@@ -1,17 +1,32 @@
 {
   "name": "node-nodejs-basics",
   "version": "1.0.0",
-  "description": "This repository is the part of nodejs-assignments https://github.com/AlreadyBored/nodejs-assignments",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "read":  "node src/fs/read.js",
+    "copy": "node src/fs/copy.js",
+    "create": "node src/fs/create.js",
+    "listFiles": "node src/fs/list.js",
+    "delete": "node src/fs/delete.js",
+    "rename": "node src/fs/rename.js",
+    "cp": "node src/cp/cp.js",
+    "args": "node src/cli/args.js --first-name Leonid --last-name Shuliak",
+    "env": "RSS_first_name=Leonid RSS_last_name=Shuliak node src/cli/env.js",
+    "calcHash": "node src/hash/calcHash.js",
+    "modules": "node src/modules/cjsToEsm.mjs",
+    "readStream": "node src/streams/read.js",
+    "transformStream": "node src/streams/transform.js",
+    "writeStream": "node src/streams/write.js",
+    "wt": "node src/wt/main.js",
+    "compress": "node src/zip/compress.js",
+    "decompress": "node src/zip/decompress.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AlreadyBored/node-nodejs-basics.git"
   },
-  "keywords": ["nodejs", "assignments", "alreadybored"],
-  "author": "alreadybored",
+  "keywords": ["nodejs", "assignments", "Leonid Shuliak"],
+  "author": "Leonid Shuliak",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/AlreadyBored/node-nodejs-basics/issues"
