@@ -1,22 +1,25 @@
-import fs from 'fs'
-import path from 'path';
+import { mkdir, readdir, copyFile } from "fs/promises";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 export const copy = async () => {
-  const folderNameCopy = 'src/fs/files_copy';
-  const folderName = 'src/fs/files';
-  const errorText = 'FS operation failed';
+  const destinationFolder = __dirname + "/files_copy";
+  const sourceFolder = __dirname + "/files";
+  const errorText = "FS operation failed";
 
-  if (fs.existsSync(folderNameCopy) || !fs.existsSync(folderName)) {
+  try {
+    await mkdir(destinationFolder, { recursive: false });
+    const folderFiles = await readdir(sourceFolder);
+    await Promise.all(
+      folderFiles.map((file) =>
+        copyFile(`${sourceFolder}/${file}`, `${destinationFolder}/${file}`)
+      )
+    );
+  } catch (err) {
     throw Error(errorText);
   }
-
-  fs.mkdirSync(folderNameCopy);
-  fs.readdir(folderName, (err,files) => {
-    files.forEach((file) => {
-      const curSource = path.join(folderNameCopy, file);
-      const copiedSource = path.join(folderName, file);
-      fs.copyFileSync(copiedSource, curSource)
-    })
-  })
 };
-copy()
+copy();
