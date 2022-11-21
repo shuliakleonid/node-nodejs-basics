@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "read":  "node src/fs/read.js",
+    "read": "node src/fs/read.js",
     "copy": "node src/fs/copy.js",
     "create": "node src/fs/create.js",
     "listFiles": "node src/fs/list.js",
@@ -25,7 +25,11 @@
     "type": "git",
     "url": "git+https://github.com/AlreadyBored/node-nodejs-basics.git"
   },
-  "keywords": ["nodejs", "assignments", "Leonid Shuliak"],
+  "keywords": [
+    "nodejs",
+    "assignments",
+    "Leonid Shuliak"
+  ],
   "author": "Leonid Shuliak",
   "license": "ISC",
   "bugs": {
