@@ -1,15 +1,20 @@
-import fs from 'fs'
+import { writeFile } from 'fs/promises';
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 export const create = async () => {
-  const pathFile = 'src/fs/files/fresh.txt';
-  const writingText = 'I am fresh and young';
+  const pathFile = __dirname + '/files/fresh.txt';
+  const content = 'I am fresh and young';
   const errorText = 'FS operation failed';
-  fs.exists(pathFile,(isExist) => {
-  if (isExist) {
+
+  try {
+    await writeFile(pathFile, content, { flag: 'wx' });
+  } catch (error) {
     throw Error(errorText);
-  } else {
-    fs.writeFile(pathFile, writingText, console.log)
   }
-  })
 };
-create()
+
+create();
