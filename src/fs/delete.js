@@ -1,14 +1,14 @@
-import fs from 'fs';
+import { rm } from "fs/promises";
+import { pathToDir } from "../utils/index.js";
 
 export const remove = async () => {
-  const deletedFile = 'src/fs/files/fileToRemove.txt';
-  const errorText = 'FS operation failed';
+  const deletedFile = pathToDir(import.meta.url, "fileToRemove.txt");
+  const errorText = "FS operation failed";
 
-  if (!fs.existsSync(deletedFile)) {
+  try {
+    await rm(deletedFile);
+  } catch (error) {
     throw Error(errorText);
   }
-  fs.unlink(deletedFile,  () => {
-    console.log('File deleted!');
-  });
 };
-remove()
+remove();
