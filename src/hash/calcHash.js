@@ -17,3 +17,5 @@ export const calculateHash = async () => {
     throw new Error(error);
   }
 };
+
+console.log(await calculateHash());
