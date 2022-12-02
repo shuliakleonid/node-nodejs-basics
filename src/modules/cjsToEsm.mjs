@@ -11,7 +11,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 let unknownObject;
-// I find two way solve this case
+
 if (random > 0.5) {
   unknownObject = JSON.parse(
       await readFile(
