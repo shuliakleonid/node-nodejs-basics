@@ -7,11 +7,11 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 export const compress = async () => {
-  const readedStream = createReadStream(__dirname + '/files/fileToCompress.txt');
-  const writedStream = createWriteStream(__dirname + '/files/archive.gz');
+  const readeStream = createReadStream(__dirname + '/files/fileToCompress.txt');
+  const writeStream = createWriteStream(__dirname + '/files/archive.gz');
   const toGz = createGzip();
 
-  readedStream.pipe(toGz).pipe(writedStream);
+  readeStream.pipe(toGz).pipe(writeStream);
   console.log('fileToCompress.txt archived!');
 };
 

@@ -7,12 +7,12 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 export const decompress = async () => {
-  const writedStream = createWriteStream(
+  const writeStream = createWriteStream(
     __dirname + '/files/fileToCompress.txt'
   );
-  const readedStream = createReadStream(__dirname + '/files/archive.gz');
+  const readeStream = createReadStream(__dirname + '/files/archive.gz');
   const fromGz = createUnzip();
-  readedStream.pipe(fromGz).pipe(writedStream);
+  readeStream.pipe(fromGz).pipe(writeStream);
   console.log('archive.gz unarchived!');
 };
 decompress();
